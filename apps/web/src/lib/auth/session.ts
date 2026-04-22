@@ -1,5 +1,5 @@
 import { headers } from 'next/headers';
-import { auth } from './config.js';
+import { auth } from './config';
 import { db } from '@invoicing/db/client';
 import { systemAdminUsers } from '@invoicing/db/schema';
 import { eq } from 'drizzle-orm';

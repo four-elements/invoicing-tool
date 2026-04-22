@@ -8,10 +8,12 @@ node_modules/
 dist/
 build/
 out/
+*.tsbuildinfo
 
 # Env-Dateien (NIE committen!)
 .env
 .env.local
+.env.production
 .env.development.local
 .env.test.local
 .env.production.local

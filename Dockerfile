@@ -55,18 +55,10 @@ COPY --from=builder --chown=nextjs:nodejs /app/apps/web/.next/static     ./apps/
 # public-Verzeichnis nur kopieren wenn vorhanden (optional)
 COPY --from=builder --chown=nextjs:nodejs /app/apps/web/public           ./apps/web/public
 
-# Migrations-Script und SQL-Dateien
-COPY --from=builder --chown=nextjs:nodejs /app/apps/web/migrate.mjs      ./apps/web/migrate.mjs
-COPY --from=builder --chown=nextjs:nodejs /app/packages/db/migrations    ./apps/web/migrations
-
-# Entrypoint (als root kopieren + ausführbar machen, dann User wechseln)
-COPY entrypoint.sh ./entrypoint.sh
-RUN chmod +x ./entrypoint.sh && chown nextjs:nodejs ./entrypoint.sh
-
 USER nextjs
 
 EXPOSE 3000
 ENV PORT=3000
 ENV HOSTNAME="0.0.0.0"
 
-CMD ["/app/entrypoint.sh"]
+CMD ["node", "apps/web/server.js"]

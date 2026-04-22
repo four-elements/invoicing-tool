@@ -1,0 +1,41 @@
+# Git
+.git
+.gitignore
+
+# Env-Dateien (niemals in Image!)
+.env
+.env.local
+.env.*
+
+# Build-Artefakte
+.next/
+apps/web/.next/
+dist/
+build/
+*.tsbuildinfo
+
+# Dependencies (werden im Build neu installiert)
+node_modules/
+apps/*/node_modules/
+packages/*/node_modules/
+
+# Turbo-Cache
+.turbo/
+
+# Tests & Dev-Tools
+coverage/
+playwright-report/
+test-results/
+*.test.ts
+*.spec.ts
+
+# IDE
+.vscode/
+.idea/
+
+# Docker
+Dockerfile
+.dockerignore
+
+# Logs
+*.log
