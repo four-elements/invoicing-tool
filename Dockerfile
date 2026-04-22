@@ -55,10 +55,22 @@ COPY --from=builder --chown=nextjs:nodejs /app/apps/web/.next/static     ./apps/
 # public-Verzeichnis nur kopieren wenn vorhanden (optional)
 COPY --from=builder --chown=nextjs:nodejs /app/apps/web/public           ./apps/web/public
 
+# drizzle-kit für Migrations-Runner (aus deps-Stage, da nicht im standalone)
+COPY --from=deps --chown=nextjs:nodejs /app/node_modules/drizzle-kit     ./node_modules/drizzle-kit
+COPY --from=deps --chown=nextjs:nodejs /app/node_modules/.bin/drizzle-kit ./node_modules/.bin/drizzle-kit
+
+# Drizzle-Config und Migrations-SQL in den Runner kopieren
+COPY --from=builder --chown=nextjs:nodejs /app/apps/web/drizzle.config.ts ./apps/web/drizzle.config.ts
+COPY --from=builder --chown=nextjs:nodejs /app/packages/db/migrations     ./apps/web/migrations
+
+# Entrypoint-Script
+COPY --chown=root:root entrypoint.sh ./entrypoint.sh
+RUN chmod +x ./entrypoint.sh
+
 USER nextjs
 
 EXPOSE 3000
 ENV PORT=3000
 ENV HOSTNAME="0.0.0.0"
 
-CMD ["node", "apps/web/server.js"]
+CMD ["/app/entrypoint.sh"]
