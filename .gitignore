@@ -1,0 +1,42 @@
+# Abhängigkeiten
+node_modules/
+.pnp
+.pnp.js
+
+# Build-Artefakte
+.next/
+dist/
+build/
+out/
+
+# Env-Dateien (NIE committen!)
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Turbo-Cache
+.turbo/
+
+# Drizzle generierte Migrations (außer custom SQL)
+# packages/db/migrations/*.sql  <- committbar außer 0001_rls_policies.sql
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Test-Ergebnisse
+coverage/
+playwright-report/
+test-results/
+
+# Logs
+*.log
+npm-debug.log*
