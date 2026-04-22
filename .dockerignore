@@ -12,6 +12,7 @@
 apps/web/.next/
 dist/
 build/
+*.tsbuildinfo
 
 # Dependencies (werden im Build neu installiert)
 node_modules/
