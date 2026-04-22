@@ -6,8 +6,8 @@ import {
   timestamp,
 } from 'drizzle-orm/pg-core';
 import { sql } from 'drizzle-orm';
-import { tenants } from './system.js';
-import { tenantUsers } from './auth.js';
+import { tenants } from './system';
+import { tenantUsers } from './auth';
 
 export const contacts = pgTable('contacts', {
   id: uuid('id').primaryKey().default(sql`gen_random_uuid()`),

@@ -7,7 +7,7 @@ import {
   unique,
 } from 'drizzle-orm/pg-core';
 import { sql } from 'drizzle-orm';
-import { tenants } from './system.js';
+import { tenants } from './system';
 
 // Better Auth generiert diese Tabellen selbst – wir deklarieren sie
 // hier nur als Referenz für Foreign Keys

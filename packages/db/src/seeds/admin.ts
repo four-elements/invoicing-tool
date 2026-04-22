@@ -1,7 +1,7 @@
 import { drizzle } from 'drizzle-orm/postgres-js';
 import postgres from 'postgres';
-import * as schema from '../schema/index.js';
-import { users, systemAdminUsers, userRoles, roles } from '../schema/index.js';
+import * as schema from '../schema/index';
+import { users, systemAdminUsers, userRoles, roles } from '../schema/index';
 import { eq } from 'drizzle-orm';
 import { createInterface } from 'node:readline';
 import { randomUUID } from 'node:crypto';

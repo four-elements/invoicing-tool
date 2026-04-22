@@ -1,7 +1,7 @@
 import { drizzle } from 'drizzle-orm/postgres-js';
 import postgres from 'postgres';
-import * as schema from '../schema/index.js';
-import { roles, permissions, rolePermissions } from '../schema/index.js';
+import * as schema from '../schema/index';
+import { roles, permissions, rolePermissions } from '../schema/index';
 import { PERMISSIONS, SYSTEM_ROLES, SYSTEM_ROLE_PERMISSIONS } from '@invoicing/types/permissions';
 import { eq } from 'drizzle-orm';
 

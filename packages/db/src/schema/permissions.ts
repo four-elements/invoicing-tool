@@ -7,8 +7,8 @@ import {
   primaryKey,
 } from 'drizzle-orm/pg-core';
 import { sql } from 'drizzle-orm';
-import { tenants } from './system.js';
-import { users } from './auth.js';
+import { tenants } from './system';
+import { users } from './auth';
 
 export const roles = pgTable('roles', {
   id: uuid('id').primaryKey().default(sql`gen_random_uuid()`),
